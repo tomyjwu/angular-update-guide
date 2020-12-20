@@ -8,7 +8,7 @@ const uiLabels: LocalizedLabels = {
   'To': '到',
   'Warning': '警告',
   'Plans for releases after the current major release are not finalized and may change. These recommendations are based on scheduled deprecations.':
-    '當前主要版本之後的發佈計劃尚未最終確定，並且可能會更改。這些建議基於計劃中的棄用。',
+    '當前主要版本之後的發佈計劃尚未最終確定，並且可能會更改。這些建議基於預定的一些已棄用功能。',
   'We do not currently support downgrading versions of Angular.':
     '我們目前不支持降級 Angular 版本。',
   'We do not recommend moving across multiple major versions.':
@@ -25,20 +25,20 @@ const uiLabels: LocalizedLabels = {
   'Other Dependencies': '其他依賴',
   'I use': '使用了',
   'to combine AngularJS & Angular': '結合 AngularJS 和 Angular',
-  'Package Manager': '包管理器',
+  'Package Manager': '軟體包管理系統',
   'Show me how to update!': '告訴我如何更新',
   'Before Updating': '更新前',
   // tslint:disable-next-line: quotemark
   "There aren't currently any changes needed before moving between these versions.":
-    '目前在這兩個版本間變化無需任何變更。',
+    '在這兩個版本中間做更新之前，目前無需任何變更。',
   'During the Update': '更新期間',
   // tslint:disable-next-line: quotemark
   "There aren't currently any recommendations for moving between these versions.":
-    '目前在這兩個版本間變化沒有任何建議。',
+    '在這兩個版本中間做更新，目前沒有任何建議。',
   'After the Update': '更新後',
   // tslint:disable-next-line: quotemark
   "There aren't currently any changes needed after moving between these versions.":
-    '目前在這兩個版本間變化後沒有任何改變。',
+    '在這兩個版本中間做更新之後，目前無需任何變更。',
   'for': '對於',
   'Basic Apps': '基本應用程序',
   'Medium Apps': '中等應用程序',
@@ -48,11 +48,11 @@ const uiLabels: LocalizedLabels = {
 const steps: LocalizedSteps = {
   'Extends OnInit': {
     action:
-      '確保您不對任何生命週期事件使用 `extends OnInit` 或 `extends`，而應使用 `implements <lifecycle event>`'
+      '確保您不使用 `extends OnInit` 或 `extends` 任何生命週期事件(lifecycle event)，而應使用 `implements <lifecycle event>`'
   },
   'Deep Imports': {
     action:
-      '停止使用深度導入(deep imports)，這些符號現在已標記為 ɵ，並且不屬於我們的公共API。'
+      '停止使用深度匯入(deep imports)，這些符號現在已標記為 ɵ，並且不屬於我們的公共API。'
   },
   'invokeElementMethod': {
     action:
@@ -60,11 +60,11 @@ const steps: LocalizedSteps = {
   },
   'Non Animations Module': {
     action:
-      '如果您在應用程序中使用動畫，你應該在 `NgModule` 導入來自 `@angular/platform-browser/animations` 的 `BrowserAnimationsModule`。'
+      '如果您在應用程序中使用動畫，你應該在根模組 `NgModule` 匯入來自 `@angular/platform-browser/animations` 的 `BrowserAnimationsModule`。'
   },
   'Native Form Validation': {
     action:
-      '當您包含 `FormsModule` 時，Angular 開始向表單元素添加一個 `novalidate` 屬性，重新啟用原始(Native)表單驗證使用 `ngNoForm` 或添加 `ngNativeValidate`。'
+      '當您包含 `FormsModule` 時，Angular 開始向表單元素添加一個 `novalidate` 屬性. 若要回用原生(Native)表單驗證，請使用 `ngNoForm` 或添加 `ngNativeValidate`。'
   },
   'RootRenderer': {
     action:
@@ -95,22 +95,22 @@ const steps: LocalizedSteps = {
     action: '停止傳遞任何參數給 ErrorHandler 的構造函數'
   },
   'ngProbeToken': {
-    action: '如果使用 ngProbeToken，請確保從 @angular/core 而不是 @angular/platform-browser 導入'
+    action: '如果使用 ngProbeToken，請確保從 @angular/core 而不是 @angular/platform-browser 匯入'
   },
   'TrackByFn': {
     action: '如果您使用 TrackByFn，請改用 TrackByFunction'
   },
   'i18n Pipe Change': {
-    action: '如果您依賴日期(date)，貨幣(currency)，十進制(decimal)或百分比管道(percent pipes)，則在 5 中您會看到格式的細微變化。i18n 管道(pipes)默認語言為 en-us，非此語言環境的應用程序應依需從 `@angular/common/i18n_data/locale_fr` 導入 `locale` 並使用 `registerLocaleData(local)` 註冊語言環境數據。'
+    action: '如果您依賴日期(date)，貨幣(currency)，十進制(decimal)或百分比管道(percent pipes)，則在 5 中您會看到格式的細微變化。i18n 管道(pipes)默認語言為 en-us，非此語言環境的應用程序應依需從 `@angular/common/i18n_data/locale_fr` 匯入 `locale` 並使用 `registerLocaleData(local)` 註冊語言環境數據。'
   },
   'gendir': {
-    action: '不要依賴 `gendir`，而要使用 `skipTemplateCodeGen`。<a href="https://github.com/angular/angular/issues/19339#issuecomment-332607471" target="_blank">瞭解詳情</a>'
+    action: '不要依賴 `gendir`，而要使用 `skipTemplateCodeGen`。<a href="https://github.com/angular/angular/issues/19339#issuecomment-332607471" target="_blank">進一步瞭解</a>'
   },
   'Dynamic ngUpgrade': {
-    action: '替換從 `@angular/upgrade` 導入的 `downgradeComponent`、`downgradeInjectable`、`UpgradeComponent` 和 `UpgradeModule`。需要在 `@angular/upgrade/static` 中使用新版本'
+    action: '替換從 `@angular/upgrade` 匯入的 `downgradeComponent`、`downgradeInjectable`、`UpgradeComponent` 和 `UpgradeModule`。需要使用在 `@angular/upgrade/static` 中的新版本'
   },
   'Animations in Core': {
-    action: '如果從 @angular/core 導入了任何動畫服務(animations services)或工具(tools)，則應從 @angular/animations 導入它們。'
+    action: '如果從 @angular/core 匯入了任何動畫服務(animations services)或工具(tools)，則應從 @angular/animations 匯入它們。'
   },
   'ngOutletContext': {
     action: '將 `ngOutletContext` 替換為 `ngTemplateOutletContext`.'
@@ -125,10 +125,10 @@ const steps: LocalizedSteps = {
     action: '如果使用了 preserveQueryParams，請使用 queryParamsHandling 代替'
   },
   'Http': {
-    action: '如果使用了舊版的 `HttpModule` 和 `Http` 服務，請切換到 `HttpClientModule` 和 `HttpClient` 服務。HttpClient 簡化了默認的 ergonomics(不再需要映射(map)到JSON)，並且現在支持類型化的返回值和攔截器。進一步瞭解 <a href="https://angular.io/guide/http" target="_blank">https://angular.io/guide/http</a>'
+    action: '如果使用了舊版的 `HttpModule` 和 `Http` 服務，請切換到 `HttpClientModule` 和 `HttpClient` 服務。HttpClient 簡化了默認的使用規則(不再需要映射(map)到JSON)，並且現在支持型別化的返回值和攔截器。進一步瞭解 <a href="https://angular.io/guide/http" target="_blank">https://angular.io/guide/http</a>'
   },
   'DOCUMENT in @angular/platform-browser': {
-    action: '如果使用了 @angular/platform-browser 的 DOCUMENT，要改為從 @angular/common 導入'
+    action: '如果使用了 @angular/platform-browser 的 DOCUMENT，要改為從 @angular/common 匯入'
   },
   'ReflectiveInjector': {
     action: '無論在那裡使用了 ReflectionInjector，現在都使用 StaticInjector'
@@ -146,7 +146,7 @@ const steps: LocalizedSteps = {
     action: '使用新的 Angular CLI 命令更新 package.json 中的 `scripts`。現在所有的 CLI 命令都使用兩個破折號來表示標誌(flags)(例如 `ng build --prod --source-map`p)，以便與 POSIX 兼容。'
   },
   'Update to Angular v6': {
-    action: '將所有 Angular 框架軟件包更新到 v6，並更新正確版本的 RxJS 和 TypeScript。<br/>`ng update @angular/core@6`<br/>更新後，TypeScript 和 RxJS 將更準確地作出類型檢查，這可能會暴露現有程序中的類型錯誤。'
+    action: '將所有 Angular 框架軟體包更新到 v6，並更新正確版本的 RxJS 和 TypeScript。<br/>`ng update @angular/core@6`<br/>更新後，TypeScript 和 RxJS 將更準確地作出型別檢查，這可能會暴露現有程序中的型別錯誤。'
   },
   'forms v6': {
     action: '現在在 Angular Forms 中，調用 `AbstractControl#markAsPending` 時，`AbstractControl#statusChanges` 將發出一個 `PENDING` 事件。如果要從 `statusChanges` 中篩選或檢查事件，請確保在調用 `markAsPending` 時考慮新事件。'
@@ -158,16 +158,16 @@ const steps: LocalizedSteps = {
     action: '在反應式表單指令(reactive form directives) 中使用 ngModel 和 ngModelChange 事件的支持，在 v6 中已棄用(deprecated) 而在 v7 中則移除了(removed)。'
   },
   'ngModelChange order': {
-    action: 'ngModelChange 現在在其控件的 value/validity 更新後發出，而不是在更新之前，以更好地匹配預期。如果依賴於這些事件的順序，則需要跟蹤組件中的舊值。'
+    action: 'ngModelChange 現在在其控件的 value/validity 更新後發出，而不是在更新之前，以更好地和預期相符。如果依賴於這些事件的順序，則需要跟蹤組件中的舊值。'
   },
   'Update Dependencies for v6': {
-    action: '將 Angular Material 更新到最新版本。<br/>`ng Update@Angular/Material`<br/>這也會自動遷移不推薦使用的 API。'
+    action: '將 Angular Material 更新到最新版本。<br/>`ng Update@Angular/Material`<br/>這也會自動遷移棄用的 API。'
   },
   'strictPropertyInitializer': {
     action: '如果您已將 TypeScript 配置為嚴格(如果在 `tsconfig.json` 文件中將 `strict` 設置為 `true`)，請更新 `tsconfig.json` 以禁用 `strictPropertyInitialization` 或將屬性初始化從 `ngOnInit` 中移到構造函數。您可以在<a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#strict-class-initialization"> TypeScript 2.7 發行說明</a>瞭解有關此的更多信息。'
   },
   'update to RxJS 6': {
-    action: '移除 RxJS 5 不推薦使用的功能使用 <a href="https://github.com/ReactiveX/rxjs-tslint" target="_blank">rxjs-tslint</a> 自動更新規則<br/>在大多數應用程序中，這需要運行以下兩個命令:<br/>`npx rxjs-tslint`<br/>`rxjs-5-to-6-migrate -p src/tsconfig.app.json`'
+    action: '移除 RxJS 5 棄用的功能使用 <a href="https://github.com/ReactiveX/rxjs-tslint" target="_blank">rxjs-tslint</a> 自動更新規則<br/>在大多數應用程序中，這需要運行以下兩個命令:<br/>`npx rxjs-tslint`<br/>`rxjs-5-to-6-migrate -p src/tsconfig.app.json`'
   },
   'remove rxjs-compat': {
     action: '一旦所有依賴更新到 RxJS 6，請移除 `rxjs-compat`.'
@@ -176,7 +176,7 @@ const steps: LocalizedSteps = {
     action: '如果使用了 Angular Service worker，使用 `files` 替代 `versionedFiles`'
   },
   'TypeScript 3.1': {
-    action: 'Angular 現在使用 TypeScript 3.1，瞭解更多信息：<a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html" target="_blank">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html</a>'
+    action: 'Angular 現在使用 TypeScript 3.1，進一步瞭解可能是破壞性的重大變更：<a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html" target="_blank">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html</a>'
   },
   'Node 10': {
     action: 'Angular 現在增加了對 Node 10 的支持: <a href="https://nodejs.org/en/blog/release/v10.0.0/" target="_blank">https://nodejs.org/en/blog/release/v10.0.0/</a>'
@@ -185,7 +185,7 @@ const steps: LocalizedSteps = {
     action: '在終端中運行 `ng update @angular/cli@7 @angular/core@7` 更新 CLI 和核心框架到 v7。'
   },
   'v7 material update': {
-    action: '執行 `ng update @angular/material`，更新到 Angular 7、Angular 8、Angular 9、Angular 10，請對應執行 `ng update @angular/material@7`、`ng update @angular/material@8`、`ng update @angular/material@9`、`ng update @angular/material@10`'
+    action: '執行 `ng update @angular/material`，更新到 Angular 7、請對應執行 `ng update @angular/material@7`。並應該測試應用程序的頁面元素大小和佈局更動'
   },
   'v7 material changes': {
     action: '如果使用屏幕截圖作為測試結果，則需要重新生成屏幕截圖文件，因為進行了許多次小的視覺調整。'
@@ -194,43 +194,43 @@ const steps: LocalizedSteps = {
     action: '停止使用 `matRippleSpeedFactor` 和 `baseSpeedFactor` 產生 ripples，使用動畫配置(Animation config)替代'
   },
   'v8 update': {
-    action: '在終端中運行 `ng update @angular/cli@8 @angular/core@8` 更新 CLI 和核心框架到 v8。'
+    action: '在終端中運行 `ng update @angular/cli@8 @angular/core@8` 更新 CLI 和核心框架到 v8，並將改動提交到版控。'
   },
   'use ::ng-deep instead of /deep/': {
-    action: '使用 `::ng-deep` 替代 `/deep/`, <a href="https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep" target="_blank">瞭解有關 Angular 組件樣式和 ::ng-deep 的更多信息</a>。`/deep/` 和 `::ng-deep` 都不推薦使用，在<a href="https://www.chromestatus.com/features/6750456638341120" target="_blank">從瀏覽器和工具(tools)中移除 shadow-piercing descendant 組合器</a>前最好使用 `::ng-deep`。'
+    action: '使用 `::ng-deep` 替代 `/deep/`, <a href="https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep" target="_blank">瞭解有關 Angular 組件樣式和 ::ng-deep 的更多信息</a>。`/deep/` 和 `::ng-deep` 都已棄用，但在<a href="https://www.chromestatus.com/features/6750456638341120" target="_blank">從瀏覽器和工具(tools)中移除 shadow-piercing descendant 組合器</a>前,  `::ng-deep`相對可用些。'
   },
   'TypeScript 3.4': {
-    action: 'Angular 現在使用 TypeScript 3.4，<a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html" target="_blank">閱讀更多關於改進類型檢查可能產生的錯誤的信息</a>'
+    action: 'Angular 現在使用 TypeScript 3.4，<a href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html" target="_blank">閱讀更多關於改進型別檢查可能產生的錯誤的信息</a>'
   },
   'node 10': {
     action: '確保正在使用 <a href="http://www.hostingadvice.com/how-to/update-node-js-latest-version/" target="_blank">Node 10 或更高版本</a>'
   },
   'Differential Loading': {
-    action: 'CLI 的 build 命令現在可以自動創建一個具有最少 polyfill 的 ES6 構建(build)，和一個適用於較舊瀏覽器的兼容 ES5 構建，並根據瀏覽器加載適當的文件。您可以通過在 `tsconfig.json` 中將 `target` 設置為 `es5` 來取消此更改。<a href="https://angular.io/guide/deployment#differential-loading" target="_blank">瞭解詳細</a>'
+    action: 'CLI 的 build 命令現在可以自動創建一個具有最少 polyfill 的 ES6 建構(build)，和一個適用於較舊瀏覽器的兼容 ES5 建構，並根據瀏覽器加載適當的文件。您可以通過在 `tsconfig.json` 中將 `target` 設置為 `es5` 來取消此更改。<a href="https://angular.io/guide/deployment#differential-loading" target="_blank">瞭解詳情</a>'
   },
   'CLI Telemetry': {
-    action: '使用新版本的 CLI 時，將詢問您是否要選擇共享 CLI 使用數據。您也可以添加自己的 Google Analytics 帳戶。這樣，我們就可以優先考慮哪些 CLI 功能，從而做出更好的決策，並衡量改進的影響。<a href="https://angular.io/analytics" target="_blank">瞭解詳細</a>'
+    action: '使用新版本的 CLI 時，將詢問您是否要選擇共享 CLI 使用數據。您也可以添加自己的 Google Analytics 帳戶。這樣，我們就可以優先考慮哪些 CLI 功能，從而做出更好的決策，並衡量改進的影響。<a href="https://angular.io/analytics" target="_blank">瞭解詳情</a>'
   },
   'static query timing': {
-    action: '如果您使用 `ViewChild` 或 `ContentChild`，則我們將更新解決這些查詢的方式，以使開發人員可以更好地控制。現在，您必須指定更改檢測應在設置結果之前運行。例如：`@ContentChild(\'foo\', {static: false}) foo !: ElementRef;`. `ng update` 會自動更新您的查詢，但會因為使您的查詢成為 `static` 而導致兼容性問題。<a href="https://angular.io/guide/static-query-migration" target="_blank">瞭解詳細</a>'
+    action: '如果您使用 `ViewChild` 或 `ContentChild`，則我們將更新解決這些查詢的方式，以使開發人員可以更好地控制。現在，您必須指定更改檢測應在設置結果之前運行。例如：`@ContentChild(\'foo\', {static: false}) foo !: ElementRef;`. `ng update` 會自動更新您的查詢，但會因為使您的查詢成為 `static` 而導致兼容性問題。<a href="https://angular.io/guide/static-query-migration" target="_blank">瞭解詳情</a>'
   },
   'v8 material update': {
     action: '執行 `ng update @angular/material`，更新到 Angular 7、Angular 8、Angular 9、Angular 10，請對應執行 `ng update @angular/material@7`、`ng update @angular/material@8`、`ng update @angular/material@9`、`ng update @angular/material@10`'
   },
   'deep imports': {
-    action: '與其從 `@angular/material` 中導入，不如從特定組件中深度導入。例如： `@angular/material/button`。`ng update` 將自動為您執行此操作。'
+    action: '與其從 `@angular/material` 中匯入，不如從特定組件中深度匯入。例如： `@angular/material/button`。`ng update` 將自動為您執行此遷移操作。'
   },
   'new loadChildren': {
-    action: '對於通過路由器延遲加載的模塊，請確保您正在<a href="https://angular.io/guide/deprecations#loadchildren-string-syntax" target="_blank">使用動態導入</a>。在 v9 中刪除了通過字符串導入。`ng update` 會自動處理。'
+    action: '對於通過路由器延遲加載的模塊，請確保您是<a href="https://angular.io/guide/deprecations#loadchildren-string-syntax" target="_blank">使用動態匯入</a>。在 v9 中刪除了通過字符串匯入。`ng update` 會自動處理這個遷移。<a href="https://angular.io/guide/deprecations#loadchildren-string-syntax" target="_blank">進一步瞭解</a>'
   },
   'platform deprecated': {
-    action: '我們不建議使用 `@angular/platform-webworker`，因為它與 CLI 不兼容。在 Web Worker 中運行 Angular 的渲染架構無法滿足開發人員的需求。您仍然可以將Web worker與Angular一起使用。通過 <a href="https://v9.angular.io/guide/web-worker" target="_blank">Web worker 指南</a>瞭解更多。如果您有需要的用例，請通過 devrel@angular.io 與我們聯繫！'
+    action: '我們不建議使用 `@angular/platform-webworker`，因為它與 CLI 不兼容。在 Web Worker 中運行 Angular 的轉譯架構無法滿足開發人員的需求。您仍然可以將Web worker與Angular一起使用。通過 <a href="https://v9.angular.io/guide/web-worker" target="_blank">Web worker 指南</a>進一步瞭解。如果您有需要這個功能的用例，請通過 devrel@angular.io 與我們聯繫！'
   },
   'node-sass': {
     action: '我們已經從本地 Sass 編譯器切換到 JavaScript 編譯器。要切換回 native 版本，請將其安裝為devDependency：`npm install node-sass --save-dev`。'
   },
   'schematics async': {
-    action: '如果要構建自己的 Schematics，它們可能(potentially)是異步(asynchronous)的。從 8.0 開始，Schematics 都是異步的。'
+    action: '如果要建構自己的 Schematics，它們可能(potentially)是異步(asynchronous)的。從 8.0 開始，Schematics 都是異步的。'
   },
   'node 10.13': {
     action: '確保正在使用 <a href="http://www.hostingadvice.com/how-to/update-node-js-latest-version/" target="_blank">Node 10.13 或更高版本</a>。'
@@ -264,13 +264,13 @@ const steps: LocalizedSteps = {
     action: '綁定的 CSS 樣式和類以前是“以最終修改為準”的策略來應用的，但是現在遵循已定義的優先級。進一步瞭解<a href="https://angular.io/guide/style-precedence" target="_blank">樣式優先</a>。'
   },
   'ModuleWithProviders': {
-    action: '如果您是庫(library)的作者，並且有返回 `ModuleWithProviders` 的方法(通常通過名為 `forRoot()` 的方法)，則需要指定泛型。<a href="https://v9.angular.io/guide/deprecations#modulewithproviders-type-without-a-generic" target="_blank">瞭解更多</a>'
+    action: '如果您是庫(library)的作者，並且有返回 `ModuleWithProviders` 的方法(通常通過名為 `forRoot()` 的方法)，則需要指定泛型。<a href="https://v9.angular.io/guide/deprecations#modulewithproviders-type-without-a-generic" target="_blank">進一步瞭解</a>'
   },
   'wtf': {
     action: '在版本 8 中已棄用了對 Angular 中的 Web 跟蹤框架的支持。您應該停止使用所有 `wtf*`API。要進行性能跟蹤，我們建議使用<a href="https://developers.google.com/web/tools/lighthouse/audits/user-timing" target="_blank">瀏覽器性能工具</a>。'
   },
   'es5browser': {
-    action: '刪除 `angular.json` 中的 `es5BrowserSupport`，並在 `tsconfig.json` 中將 `target` 設置為 `es2015`。Angular 現在使用您的瀏覽器列表來確定是否需要 ES5 構建。ng update 將自動遷移此項。'
+    action: '刪除 `angular.json` 中的 `es5BrowserSupport`，並在 `tsconfig.json` 中將 `target` 設置為 `es2015`。Angular 現在使用您的瀏覽器列表來確定是否需要 ES5 建構。ng update 將自動遷移此項。'
   },
   'ngForm selector': {
     action: '如果您使用 `ngForm` 元素選擇器來創建 Angular Forms，則應該使用 `ng-form`。'
@@ -279,25 +279,25 @@ const steps: LocalizedSteps = {
     action: '我們更新了 `tsconfig.app.json` 以限制編譯的文件。如果編譯包含其他的依賴文件，例如 `typings.d.ts` 文件，則需要手動將其添加到編譯中。'
   },
   'debug': {
-    action: 'Angular 9 Ivy 是現在默認的渲染引擎，可能出現的兼容性問題，請閱讀 <a href="https://angular.io/guide/ivy-compatibility" target="_blank">Ivy 兼容性指南</a>。'
+    action: 'Angular 9 Ivy 是現在默認的轉譯引擎，可能出現的兼容性問題，請閱讀 <a href="https://angular.io/guide/ivy-compatibility" target="_blank">Ivy 兼容性指南</a>。'
   },
   'ngcc postinstall': {
-    action: '如果您依賴於許多 Angular 庫，則可以考慮<a href="https://v9.angular.io/guide/ivy#speeding-up-ngcc-compilation" target="_blank">通過對 package.json 進行少量更改</a>來調用 npm `postinstall` 腳本中的 `ngcc`(Angular Compatibility Compiler)來加快構建速度。'
+    action: '如果您依賴於許多 Angular 庫，則可以考慮<a href="https://v9.angular.io/guide/ivy#speeding-up-ngcc-compilation" target="_blank">通過對 package.json 進行少量更改</a>來調用 npm `postinstall` 腳本中的 `ngcc`(Angular Compatibility Compiler)來加快建構速度。'
   },
   'express-universal-server': {
     action: '如果您將 Angular Universal 與 `@nguniversal/express-engine` 或 `@nguniversal/hapi-engine` 一起使用，則會創建多個備份文件。其中一個用於 `server.ts`。如果此文件與默認文件不符，則可能需要手動將一些更改從 `server.ts.bak` 複製到 `server.ts`。'
   },
   'ivy i18n': {
-    action: 'Angular 9 引入了一個全局的 `$localize()` 函數，如果您依賴於 Angular 的國際化(i18n)，則需要加載該函數。運行 `ng add @angular/localize` 添加必要的軟件包和代碼修改。請參閱 <a href="https://v9.angular.io/guide/migration-localize" target="_blank">$localize 全局導入遷移指南</a>以瞭解有關更改的更多信息。'
+    action: 'Angular 9 引入了一個全局的 `$localize()` 函數，如果您依賴於 Angular 的國際化(i18n)，則需要加載該函數。運行 `ng add @angular/localize` 添加必要的軟體包和代碼修改。請參閱 <a href="https://v9.angular.io/guide/migration-localize" target="_blank">$localize 全局匯入遷移指南</a>以瞭解有關更改的更多信息。'
   },
   'entryComponents': {
     action: '如果您在 NgModules 中指定了 `entryComponents` 或使用了 `ANALYZE_FOR_ENTRY_COMPONENTS`，則可以將其刪除。Ivy 和運行時不再需要它們。'
   },
   'testbed-get': {
-    action: '如果您使用 `TestBed.get`，則應改用 `TestBed.inject`。此新方法具有相同的行為，且類型安全。'
+    action: '如果您使用 `TestBed.get`，則應改用 `TestBed.inject`。此新方法具有相同的行為，且型別安全。'
   },
   '$localize': {
-    action: '如果您使用 Angular 的 i18n 支持，則需要開始使用 `@angular/localize`。請參閱 <a href="https://v9.angular.io/guide/migration-localize" target="_blank">$localize 全局導入遷移指南</a>以瞭解有關更改的更多信息。'
+    action: '如果您使用 Angular 的 i18n 支持，則需要開始使用 `@angular/localize`。請參閱 <a href="https://v9.angular.io/guide/migration-localize" target="_blank">$localize 全局匯入遷移指南</a>以瞭解有關更改的更多信息。'
   },
 
   'ng update v10': {
@@ -313,25 +313,25 @@ const steps: LocalizedSteps = {
     action: '在您的 Angular 原理圖(schematics)中停止使用 `styleext` 或 `spec`。ng update 將自動遷移此項。'
   },
   'classes-without-decorators': {
-    action: '在版本10中，不再支持使用Angular功能且沒有Angular裝飾器的類。<a href="https://v10.angular.io/guide/migration-undecorated-classes" target="_blank">瞭解更多</a>。ng update 將自動遷移此項。'
+    action: '在版本10中，不再支持使用Angular功能且沒有Angular裝飾器的類。<a href="https://v10.angular.io/guide/migration-undecorated-classes" target="_blank">進一步瞭解</a>。ng update 將自動遷移此項。'
   },
   'injectable-definitions': {
-    action: '從 Angular 9 開始，對 DI 的 @Injectable 裝飾器的實施更加嚴格，不完整的提供程序定義的行為也有所不同。<a href="https://v9.angular.io/guide/migration-injectable" target="_blank">瞭解更多</a>。ng update 將自動遷移此項。'
+    action: '從 Angular 9 開始，對 DI 的 @Injectable 裝飾器的實施更加嚴格，不完整的提供程序定義的行為也有所不同。<a href="https://v9.angular.io/guide/migration-injectable" target="_blank">進一步瞭解</a>。ng update 將自動遷移此項。'
   },
   'closure-jsdoc-comments': {
-    action: 'Angular 的 NPM 軟件包不再包含 jsdoc 註釋，這是與閉包編譯器一起使用所必需的(極為罕見)。這種支持是實驗性的，僅在某些用例中有效。不久將宣佈一條替代的推薦路線。'
+    action: 'Angular 的 NPM 軟體包不再包含 jsdoc 註釋，這是與Closure Compiler一起使用所必需的(極為罕見)。這種支持是實驗性的，僅在某些用例中有效。不久將宣佈一條替代的推薦路線。'
   },
   'forms-number-input': {
-    action: '如果您使用 Angular 表單，則 `number` 類型的輸入將不再監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/change_event" target="_blank">更改事件</a>(此事件不必為每個更改觸發該值)，而監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/input_event" target="_blank">輸入事件</a>。'
+    action: '如果您使用 Angular 表單，則 `number` 型別的輸入將不再監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/change_event" target="_blank">更改事件</a>(此事件不必為每個更改觸發該值)，而監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/input_event" target="_blank">輸入事件</a>。'
   },
   'forms-length-input': {
     action: '對於 Angular 表單驗證，`minLength` 和 `maxLength` 驗證器將驗證表單控件的值的 length 屬性。'
   },
   'esm5-bundles': {
-    action: '<a href="https://g.co/ng/apf" target="_blank">Angular 包格式</a>已更新，已刪除 `esm5` 和 `fesm5` 格式。這些不再分發到 npm 軟件包中。如果您不使用 CLI，則可能需要自己將 Angular 代碼降級為 ES5。'
+    action: '<a href="https://g.co/ng/apf" target="_blank">Angular 包格式</a>已更新，已刪除 `esm5` 和 `fesm5` 格式。這些不再分發到 npm 軟體包中。如果您不使用 CLI，則可能需要自己將 Angular 代碼降級為 ES5。'
   },
   'console-errors': {
-    action: '有關未知元素的警告現在記錄為錯誤。這不會破壞您的應用程序，但可能會使一些工具無法通過 `console.error` 記錄任何東西。'
+    action: '有關未知元素的警告現在記錄為錯誤。這不會破壞您的應用程序，但有些工具，並不預期 `console.error` 會出現記錄，可能因些而產生錯誤。'
   },
   'router-resolver-empty': {
     action: '所有返回 `EMPTY` 的解析器(resolver)都將取消導航(navigation)。如果要允許導航繼續進行，則需要更新解析器以發出一些值(例如，`defaultIfEmpty(...)`，`of(...)`等)。'
@@ -349,7 +349,7 @@ const steps: LocalizedSteps = {
     action: '如果您使用 `formatDate()` 或 `DatePipe` 以及 `b` 或 `B` 格式的代碼，則邏輯已更新，以便與一天中跨越午夜的時間段相匹配，因此它現在將呈現正確的輸出，例如在英語中為“night”。'
   },
   'urlmatcher-null': {
-    action: '如果您使用 `UrlMatcher`，現在類型反映出它始終可以返回 `null`。'
+    action: '如果您使用 `UrlMatcher`，現在型別反映出它始終可以返回 `null`。'
   },
   'v10-more-details': {
     action: '有關棄用，自動遷移和更改的更多詳細信息，請訪問 <a href="https://angular.io/guide/updating-to-version-10" target="_blank">Angular 更新到版本 10</a>'
@@ -370,7 +370,7 @@ const steps: LocalizedSteps = {
     action: '現在可以通過使用 Yarn 且在 `package.json` 中添加 `"resolutions": {"webpack": "^5.0.0"}`  來選擇使用 webpack 5。'
   },
   'ng new strict prompt': {
-    action: '生成新項目時，將詢問您是否要啟用嚴格模式。這將配置 TypeScript 和 Angular 編譯器以進行更嚴格的類型檢查，並默認應用更小的包預算(bundle budgets)。可以使用 `--strict=true` 或 `--strict=false` 跳過提示。'
+    action: '生成新項目時，將詢問您是否要啟用嚴格模式。這將配置 TypeScript 和 Angular 編譯器以進行更嚴格的型別檢查，並默認應用更小的包預算(bundle budgets)。可以使用 `--strict=true` 或 `--strict=false` 跳過提示。'
   },
   'v11 router relativeLinkResolution': {
     action: '如果您使用路由(Router)，則 `relativeLinkResolution` 的默認值已從 `legacy` 改為 `corrected`。如果您的應用程序以前未在 ExtraOptions 中指定值而使用了默認值，並且在從空路徑路由的子級導航時使用相對鏈接(relative links)，則需要更新 `RouterModule` 的配置，以專門為 `relativeLinkResolution` 指定 `legacy`。有關更多詳細信息，請參閱<a href="https://v11.angular.io/api/router/ExtraOptions#relativeLinkResolution" target="_blank">文檔</a>。'
@@ -382,7 +382,7 @@ const steps: LocalizedSteps = {
     action: '在 Angular 路由(Router)的 `routerLink` 中，`preserveQueryParams` 已被刪除，請改用 `queryParamsHandling="preserve"`。'
   },
   'routerlink queryParams typing': {
-    action: '如果訪問的是 `queryParams`、`fragment`或 `queryParamsHandling` 的 `routerLink` 值，則可能需要放寬類型以同時接受 `undefined` 和 `null`。'
+    action: '如果訪問的是 `queryParams`、`fragment`或 `queryParamsHandling` 的 `routerLink` 值，則可能需要放寬型別以同時接受 `undefined` 和 `null`。'
   },
   'viewencapsulation native removed': {
     action: '組件視圖封裝選項 `ViewEncapsulation.Native` 已被刪除。使用 `ViewEncapsulation.ShadowDom` 代替。ng update 將自動遷移此項。'
@@ -391,10 +391,10 @@ const steps: LocalizedSteps = {
     action: '如果使用 i18n，現在將再次檢查 Unicode 國際組件(ICU)表達式中的表達式。如果在 ICU 中出現的表達式中發現錯誤，這可能會導致編譯失敗。'
   },
   'forms validators asyncValidators typing': {
-    action: '`@angular/forms` 包中的指令過去將 `any[]` 作為構造函數中預期的 `validators` 和 `asyncValidators` 參數的類型。現在這些參數類型正確，因此，如果代碼依賴於 `@angular/forms` 的指令構造函數類型，則可能需要進行一些更新以提高類型安全性。'
+    action: '`@angular/forms` 包中的指令過去將 `any[]` 作為構造函數中預期的 `validators` 和 `asyncValidators` 參數的型別。現在這些參數型別正確，因此，如果代碼依賴於 `@angular/forms` 的指令構造函數型別，則可能需要進行一些更新以提高型別安全性。'
   },
   'forms AbstractFormControl': {
-    action: '如果您使用 Angular Forms，則 `AbstractFormControl.parent` 的類型現在包含 null。ng update 將自動遷移此項。但是在一個不太可能的情況下，您的代碼是針對 undefined 和 strict equality 來測試父對象的，因此需要將其改為 `=== null`，因為父對象現在顯式地用 `null` 初始化，而不是保持 undefined。'
+    action: '如果您使用 Angular Forms，則 `AbstractFormControl.parent` 的型別現在包含 null。ng update 將自動遷移此項。但是在一個不太可能的情況下，您的代碼是針對 undefined 和 strict equality 來測試父對象的，因此需要將其改為 `=== null`，因為父對象現在顯式地用 `null` 初始化，而不是保持 undefined。'
   },
   'platform-webworker': {
     action: '在 v8 中已棄用了很少使用的 `@angular/platform-webworker` 和 `@angular/platform-webworker-dynamic`，並已將其刪除。在 Web worker 中運行 Angular 的部分內容是一項實驗，在常見的用例中效果不佳。Angular 仍然對 <a href="https://angular.io/guide/web-worker" target="_blank">Web Workers</a> 有很好的支持。'
@@ -403,13 +403,13 @@ const steps: LocalizedSteps = {
     action: '`slice` 管道現在為未定義的輸入值返回 null，這與大多數管道的行為一致。'
   },
   'v11 keyvalue typing': {
-    action: '`keyvalue` 管道已修復，可以報告具有數字 key 的輸入對象，結果類型將包含鍵的字符串表示形式。已經是這種情況，並且僅對代碼進行了更新以反映這一點。如果他們依賴不正確的類型，請更新管道輸出的使用者。請注意，這不會影響輸入值為 `Map` 的用例，因此，如果需要保留 `number`，這是一種有效的方法。'
+    action: '`keyvalue` 管道已修復，可以報告具有數字 key 的輸入對象，結果型別將包含鍵的字符串表示形式。已經是這種情況，並且僅對代碼進行了更新以反映這一點。如果他們依賴不正確的型別，請更新管道輸出的使用者。請注意，這不會影響輸入值為 `Map` 的用例，因此，如果需要保留 `number`，這是一種有效的方法。'
   },
   'v11 number pipe typing': {
-    action: '現在，數字管道(`decimal`， `percent`， `currency`等)明確說明了接受哪些類型。'
+    action: '現在，數字管道(`decimal`， `percent`， `currency`等)明確說明了接受哪些型別。'
   },
   'v11 date pipe typing': {
-    action: '現在，`date` 管道明確說明了接受哪些類型。'
+    action: '現在，`date` 管道明確說明了接受哪些型別。'
   },
   'v11 datetime rounding': {
     action: '當將日期時間格式的字符串以包含毫秒部分的格式傳遞給 `DatePipe` 時，現在毫秒將取整，而不是取最接近的毫秒。大多數應用程序不會受到此更改的影響。如果這不是期望的行為，則在將字符串傳遞給 `DatePipe` 之前，考慮對其進行預處理以舍入毫秒部分。'
@@ -421,7 +421,7 @@ const steps: LocalizedSteps = {
     action: '`uppercase` 和 `lowercase` 管道不再讓虛假的值通過。現在，它們將 `null` 和 `undefined` 都映射到 `null`，並在無效輸入(`0`， `false`， `NaN`)上引發異常。這與其他 Angular 管道匹配。'
   },
   'v11 router NavigationExtras typing': {
-    action: '如果您將路由(Router)與 `NavigationExtras` 一起使用，則新的類型允許傳入類型為 `NavigationExtras` 的變量，但它們將不允許對象文字(object literals)，因為它們可能僅指定已知屬性。他們也將不接受那些與 `Pick` 中的屬性沒有共同屬性的類型。如果您受到此更改的影響，請僅從 NavigationExtras 中指定實際在各個函數調用中使用的屬性，或在對象或變量上使用類型聲明：`as NavigationExtras`。'
+    action: '如果您將路由(Router)與 `NavigationExtras` 一起使用，則新的型別允許傳入型別為 `NavigationExtras` 的變量，但它們將不允許對象文字(object literals)，因為它們可能僅指定已知屬性。他們也將不接受那些與 `Pick` 中的屬性沒有共同屬性的型別。如果您受到此更改的影響，請僅從 NavigationExtras 中指定實際在各個函數調用中使用的屬性，或在對象或變量上使用型別聲明：`as NavigationExtras`。'
   },
   'v11 TestBed.overrideProvider': {
     action: '在測試中，如果在 TestBed 初始化之後調用 `TestBed.overrideProvider`，overrideProvider 已移除。此行為與其他替代方法(例如 `TestBed.overrideDirective` 等)一致，但它們會拋出錯誤來表明這一點。該檢查以前在 TestBed.overrideProvider 函數中丟失。如果看到此錯誤，則應在完成 TestBed 初始化之前移除 `TestBed.overrideProvider` 調用。'
