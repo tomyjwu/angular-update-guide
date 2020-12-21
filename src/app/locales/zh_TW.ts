@@ -294,7 +294,7 @@ const steps: LocalizedSteps = {
     action: '如果您在 NgModules 中指定了 `entryComponents` 或使用了 `ANALYZE_FOR_ENTRY_COMPONENTS`，則可以將其刪除。Ivy 和運行時不再需要它們。'
   },
   'testbed-get': {
-    action: '如果您使用 `TestBed.get`，則應改用 `TestBed.inject`。此新方法具有相同的行為，且型別安全。'
+    action: '如果您使用 `TestBed.get`，則應改用 `TestBed.inject`。此新方法具有相同的行為，而且是型別安全的。'
   },
   '$localize': {
     action: '如果您使用 Angular 的 i18n 支持，則需要開始使用 `@angular/localize`。請參閱 <a href="https://v9.angular.io/guide/migration-localize" target="_blank">$localize 全局匯入遷移指南</a>以瞭解有關更改的更多信息。'
@@ -313,40 +313,40 @@ const steps: LocalizedSteps = {
     action: '在您的 Angular 原理圖(schematics)中停止使用 `styleext` 或 `spec`。ng update 將自動遷移此項。'
   },
   'classes-without-decorators': {
-    action: '在版本10中，不再支持使用Angular功能且沒有Angular裝飾器的類。<a href="https://v10.angular.io/guide/migration-undecorated-classes" target="_blank">進一步瞭解</a>。ng update 將自動遷移此項。'
+    action: '在版本10中，不再支持使用Angular功能但沒有Angular裝飾器的類別。<a href="https://v10.angular.io/guide/migration-undecorated-classes" target="_blank">進一步瞭解</a>。ng update 將自動遷移此項。'
   },
   'injectable-definitions': {
-    action: '從 Angular 9 開始，對 DI 的 @Injectable 裝飾器的實施更加嚴格，不完整的提供程序定義的行為也有所不同。<a href="https://v9.angular.io/guide/migration-injectable" target="_blank">進一步瞭解</a>。ng update 將自動遷移此項。'
+    action: '從 Angular 9 開始，對 提供依賴注入（DI）的類別，將嚴格要求加上 @Injectable 裝飾器，而且裝飾器不完整的服務提供者(provider)的行為也有所不同。<a href="https://v9.angular.io/guide/migration-injectable" target="_blank">進一步瞭解</a>。ng update 將自動遷移此項。'
   },
   'closure-jsdoc-comments': {
-    action: 'Angular 的 NPM 軟體包不再包含 jsdoc 註釋，這是與Closure Compiler一起使用所必需的(極為罕見)。這種支持是實驗性的，僅在某些用例中有效。不久將宣佈一條替代的推薦路線。'
+    action: 'Angular 的 NPM 軟體包不再包含 jsdoc 註釋，這是與Closure Compiler(極為罕見)一起使用所必需的。這種支持是實驗性的，僅在某些用例中有效。不久將宣佈推薦的替代方案。'
   },
   'forms-number-input': {
-    action: '如果您使用 Angular 表單，則 `number` 型別的輸入將不再監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/change_event" target="_blank">更改事件</a>(此事件不必為每個更改觸發該值)，而監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/input_event" target="_blank">輸入事件</a>。'
+    action: '如果您使用 Angular 表單，則 `number` 型別的輸入將不再監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/change_event" target="_blank">更改事件</a>(此事件為每個更改該值產生不必要的觸發)，而改監聽<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/input_event" target="_blank">輸入事件</a>。'
   },
   'forms-length-input': {
-    action: '對於 Angular 表單驗證，`minLength` 和 `maxLength` 驗證器將驗證表單控件的值的 length 屬性。'
+    action: '對於 Angular 表單驗證，表單控件的值的長度 (length) 屬性是數字類別時，`minLength` 和 `maxLength` 驗證器才會對此控件做長度驗證。'
   },
   'esm5-bundles': {
     action: '<a href="https://g.co/ng/apf" target="_blank">Angular 包格式</a>已更新，已刪除 `esm5` 和 `fesm5` 格式。這些不再分發到 npm 軟體包中。如果您不使用 CLI，則可能需要自己將 Angular 代碼降級為 ES5。'
   },
   'console-errors': {
-    action: '有關未知元素的警告現在記錄為錯誤。這不會破壞您的應用程序，但有些工具，並不預期 `console.error` 會出現記錄，可能因些而產生錯誤。'
+    action: '有關未知元素的警告現在記錄為錯誤。這不會破壞您的應用程序，但有些工具，並不預期 `console.error` 會出現記錄，可能因此而產生錯誤。'
   },
   'router-resolver-empty': {
     action: '所有返回 `EMPTY` 的解析器(resolver)都將取消導航(navigation)。如果要允許導航繼續進行，則需要更新解析器以發出一些值(例如，`defaultIfEmpty(...)`，`of(...)`等)。'
   },
   'sw-vary-headers': {
-    action: '如果您使用 Angular Service Worker 並通過 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary" target="_blank">Vary Headers</a> 依賴資源，則現在將忽略這些 Headers 以避免跨瀏覽器的行為出現不可預測的情況。為了避免這種情況，請<a href="https://angular.io/guide/service-worker-config" target="_blank">配置 service worker</a> 以避免緩存這些資源。'
+    action: '如果您使用 Angular Service Worker 並依賴網路資源帶有 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary" target="_blank">Vary Headers</a>頭欄位 ，這些 Headers 現在將被忽略，以避免跨瀏覽器的行為出現不可預測的情況。為了避免這種情況，請<a href="https://angular.io/guide/service-worker-config" target="_blank">配置 service worker</a> 避免緩存這些網路資源。'
   },
   'expression-changed-after-checked-new': {
-    action: '您可能會看到在使用 `async` 管道之前未檢測到的 `ExpressionChangedAfterItHaHasBeenChecked` 錯誤。該錯誤以前可能沒有被檢測到，因為兩個 `WrappedValues` 在所有情況下都被視為“相等”，即使檢查時未將其各自的未包裝值。在版本 10 中，`WrappedValue` 已被刪除。'
+    action: '在使用 `async` 管道 (pipe) 時，您可能會看到之前未檢測到的 `ExpressionChangedAfterItHaHasBeenChecked` 錯誤。該錯誤以前可能沒有被檢測到，因為任兩個 `WrappedValues` 在所有情況下都被視為“相等”，即使各自的未包裝值查是不同的。在版本 10 中，`WrappedValue` 已被移除。'
   },
   'property-binding-change-detection': {
-    action: '如果您具有屬性綁定，例如 `[val]=(observable | async).someProperty`，則如果 `someProperty` 的值與先前的發射(emit)相同，則它將不再觸發更改檢測。如果您依賴於此，請根據需要手動訂閱並調用 `markForCheck` 或更新綁定以確保引用更改。'
+    action: '若您使用如下例的屬性繫結，如 `[val]=(observable | async).someProperty`，則如果 `someProperty` 的值與先前的引發值(emit)相同，則它將不再觸發更改檢測。如果您依賴於此，請根據需要手動訂閱並調用 `markForCheck` 或更新綁定以確保變更檢測。'
   },
   'day-periods-crossing-midnight': {
-    action: '如果您使用 `formatDate()` 或 `DatePipe` 以及 `b` 或 `B` 格式的代碼，則邏輯已更新，以便與一天中跨越午夜的時間段相匹配，因此它現在將呈現正確的輸出，例如在英語中為“night”。'
+    action: '如果您使用 `formatDate()` 或 `DatePipe` 以及 `b` 或 `B` 的格式碼，則邏輯已更新，以便與一天中跨越午夜的時間段相匹配，因此它現在將呈現正確的輸出，例如在英語中為“night”。'
   },
   'urlmatcher-null': {
     action: '如果您使用 `UrlMatcher`，現在型別反映出它始終可以返回 `null`。'
